@@ -1,12 +1,45 @@
-const ExpenseForm = ({ categories }) => {
-  const formSubmitHandler = () => {
-    console.log("submitted");
+import { useState } from "react";
+
+const ExpenseForm = ({ categories, onSubmitExpense }) => {
+  const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
+  const [amount, setAmount] = useState("");
+
+  const categoryChangeHandler = (e) => {
+    setCategory(e.target.value);
+  };
+
+  const descriptionChangeHandler = (e) => {
+    setDescription(e.target.value);
+  };
+
+  const amountChangeHandler = (e) => {
+    setAmount(e.target.value);
+  };
+
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+    const expense = {
+      category: category,
+      description: description,
+      amount: Number(amount),
+    };
+
+    setCategory("");
+    setDescription("");
+    setAmount("");
+
+    onSubmitExpense(expense);
   };
   return (
     <form onSubmit={formSubmitHandler} className="expense-form">
       <div className="form-group">
-        <label for="category">Category</label>
-        <select className="form-control form-input" id="category">
+        <label>Category</label>
+        <select
+          className="form-control form-input"
+          onChange={categoryChangeHandler}
+          value={category}
+        >
           <option value={categories[0].label}>{categories[0].label}</option>
           <option value={categories[1].label}>{categories[1].label}</option>
           <option value={categories[2].label}>{categories[2].label}</option>
@@ -15,16 +48,22 @@ const ExpenseForm = ({ categories }) => {
         </select>
       </div>
       <div className="form-group">
-        <label for="description">Description</label>
+        <label>Description</label>
         <input
           className="form-control form-input"
           type="text"
-          id="description"
+          value={description}
+          onChange={descriptionChangeHandler}
         />
       </div>
       <div className="form-group">
-        <label for="amount">Amount</label>
-        <input className="form-control form-input" type="number" id="amount" />
+        <label>Amount</label>
+        <input
+          className="form-control form-input"
+          type="number"
+          value={amount}
+          onChange={amountChangeHandler}
+        />
       </div>
       <button type="submit" className="btn submit-btn">
         Submit

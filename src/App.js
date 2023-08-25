@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Budget from "./components/Budget";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faGear } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faGear, faHouse } from "@fortawesome/free-solid-svg-icons";
 import AddExpense from "./components/AddExpense";
 
 function App() {
@@ -83,8 +83,9 @@ function App() {
   return (
     <div className="app">
       <nav>
-        <FontAwesomeIcon icon={faUser} className="icon" />
+        <FontAwesomeIcon icon={faHouse} className="icon" />
         <FontAwesomeIcon icon={faGear} className="icon" />
+        <FontAwesomeIcon icon={faUser} className="icon" />
       </nav>
       <div className="center">
         <Header categories={categories} />

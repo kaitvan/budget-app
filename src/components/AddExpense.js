@@ -8,9 +8,21 @@ const AddExpense = ({ categories }) => {
     setShowForm(true);
   };
 
+  const onSubmitExpense = (expense) => {
+    setShowForm(false);
+    console.log(expense);
+  };
+
   return (
     <div className="add-expense" onClick={clickHandler}>
-      {showForm ? <ExpenseForm categories={categories} /> : <p>Add expense</p>}
+      {showForm ? (
+        <ExpenseForm
+          categories={categories}
+          onSubmitExpense={onSubmitExpense}
+        />
+      ) : (
+        <p>Add expense</p>
+      )}
     </div>
   );
 };
