@@ -1,5 +1,7 @@
 import { useState } from "react";
 import ExpenseForm from "./ExpenseForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 const AddExpense = ({ categories }) => {
   const [showForm, setShowForm] = useState(false);
@@ -21,7 +23,10 @@ const AddExpense = ({ categories }) => {
           onSubmitExpense={onSubmitExpense}
         />
       ) : (
-        <p>Add expense</p>
+        <>
+          <FontAwesomeIcon icon={faCirclePlus} />
+          <p>Add expense</p>
+        </>
       )}
     </div>
   );

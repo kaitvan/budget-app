@@ -54,7 +54,7 @@ header {
 }
 
 .subtitle {
-  color: #f54b89;
+  color: #feab03;
   margin: 0;
   font-weight: bold;
 }
@@ -79,9 +79,14 @@ header {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   margin: 40px 0;
   border-radius: 10px;
-  color: #feab03;
+  color: #f54b89;
   font-weight: bold;
   padding: 20px;
+}
+
+.add-expense p {
+  display: inline;
+  margin: 0 0 0 10px;
 }
 
 .form-input {
@@ -89,7 +94,7 @@ header {
 }
 
 .submit-btn {
-  background-color: #feab03;
+  background-color: #f54b89;
   color: white;
   font-weight: bold;
   margin-top: 10px;
