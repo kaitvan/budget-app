@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const ExpenseForm = ({ categories, onSubmitExpense }) => {
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(categories[0].label);
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
 
@@ -40,11 +40,11 @@ const ExpenseForm = ({ categories, onSubmitExpense }) => {
           onChange={categoryChangeHandler}
           value={category}
         >
-          <option value={categories[0].label}>{categories[0].label}</option>
-          <option value={categories[1].label}>{categories[1].label}</option>
-          <option value={categories[2].label}>{categories[2].label}</option>
-          <option value={categories[3].label}>{categories[3].label}</option>
-          <option value={categories[4].label}>{categories[4].label}</option>
+          {categories.map((category) => (
+            <option value={category.label} key={category.id}>
+              {category.label}
+            </option>
+          ))}
         </select>
       </div>
       <div className="form-group">

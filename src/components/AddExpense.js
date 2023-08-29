@@ -3,7 +3,7 @@ import ExpenseForm from "./ExpenseForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
-const AddExpense = ({ categories }) => {
+const AddExpense = ({ categories, onLogExpense }) => {
   const [showForm, setShowForm] = useState(false);
 
   const clickHandler = () => {
@@ -12,7 +12,7 @@ const AddExpense = ({ categories }) => {
 
   const onSubmitExpense = (expense) => {
     setShowForm(false);
-    console.log(expense);
+    onLogExpense(expense);
   };
 
   return (
